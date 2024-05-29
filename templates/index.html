@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HOME | DWELLSPHARE</title>
+		<link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico">
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/static/css/style.min.css" />
+	</head>
+
+	<body>
+		<!-- Header Start -->
+		<div class="header-wrap">
+			<header>
+				<div class="container">
+					<!-- Logo Start -->
+					<div class="logo">
+						<a href="{{ url_for('index') }}">
+							<img src="/static/assets/logo2.png" alt="DWELLSPHARE" width="70px"/>
+							DWELLSPHARE
+						</a>
+					</div>
+					<!-- Logo End -->
+					<button class="menu-toggle">
+						<i class="ri-menu-fill bar-icon"></i>
+						<i class="ri-close-fill close-icon"></i>
+					</button>
+					<div class="header-right">
+						<!-- Header Menu Start -->
+						<div class="menu">
+							<ul>
+								<li><a href="{{ url_for('index') }}">Home</a></li>
+								<li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+								<li><a href="{{ url_for('allProperty') }}">Properties</a></li>
+								<!-- <li><a href="#">Blog</a></li> -->
+							</ul>
+						</div>
+						<!-- Header Menu End -->
+						<!-- Header Cta Start -->
+						<div class="cta">
+							<a href="{{ url_for('login') }}" class="btn btn-outline-primary" >Log-in</a>
+						</div>
+						<!-- Header Cta End -->
+					</div>
+				</div>
+			</header>
+		</div>
+		<!-- Header End -->
+
+		<div class="banner-wrap">
+			<div class="container">
+				<div class="banner-box">
+					<!-- Banner Image Start -->
+					<div class="banner-box__img">
+						<img
+							src="/static/assets/banner-image.png"
+							width="1300"
+							height="634"
+							alt=""
+						/>
+					</div>
+					<!-- Banner Image End -->
+					<!-- Banner Content Start -->
+					<div class="banner-box__content">
+						<h1 class="banner-box__title h1">
+							Easy way to find a perfect Hostels
+						</h1>
+						<div class="banner-box__txt text-ex-large">
+							We offer a full range of services for the PG rooms in the vicinity of your locations.
+						</div>
+					</div>
+					<!-- Banner Content End -->
+					<!-- Banner Tab Start  -->
+					<div class="banner-tab-wrap">
+						<!-- Tab Nav Start -->
+						<ul class="nav" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button
+									class="tab-item active"
+									data-bs-toggle="pill"
+									data-bs-target="#rent"
+									type="button"
+									role="tab"
+									aria-selected="true"
+								>
+									PG Rooms
+								</button>
+							</li>
+							<!-- <li class="nav-item" role="presentation">
+								<button
+									class="tab-item"
+									data-bs-toggle="pill"
+									data-bs-target="#buy"
+									type="button"
+									role="tab"
+									aria-selected="false"
+								>
+									Buy
+								</button>
+							</li> -->
+							<!-- <li class="nav-item" role="presentation">
+								<button
+									class="tab-item"
+									data-bs-toggle="pill"
+									data-bs-target="#sell"
+									type="button"
+									role="tab"
+									aria-selected="false"
+								>
+									Sell
+								</button>
+							</li> -->
+						</ul>
+						<!-- Tab Nav End -->
+						<!-- Tab Content Start -->
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="rent" role="tabpanel">
+								<form class="form-wrap" method="post" action="{{ url_for('search') }}">
+									<div class="row align-items-end">
+										<div class="col-md-10">
+											<div class="row">
+												<div class="col-md-6 col-lg-4">
+													<div class="form-group mb-lg-0">
+														<label class="form-label">Location</label>
+														<input type="text" class="form-control" name="search_address" required>
+													</div>
+												</div>
+												<div class="col-md-6 col-lg-4">
+													<div class="form-group mb-lg-0">
+														<label class="form-label">Room Type(no of beds)</label>
+														<select class="form-control" name="min_capacity" required>
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+															<option>6</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6 col-lg-4">
+													<div class="form-group mb-md-0">
+														<label class="form-label">Max Rant Price in ₹</label>
+														<select class="form-control" name="max_rent" required>
+															<option>1000</option>
+															<option>3000</option>
+															<option>6000</option>
+															<option>9000</option>
+															<option>15000</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-2 d-md-flex">
+											<button class="btn btn-primary btn-icon ms-auto" type="submit">
+												<i class="ri-search-2-line"></i>
+											</button>
+										</div>
+									</div>
+								</form>
+								
+							</div>
+						</div>
+						<!-- Tab Content End -->
+					</div>
+					<!-- Banner Tab End  -->
+				</div>
+			</div>
+		</div>
+
+		<div class="countries-wrap">
+			<!-- Countries Section Start -->
+			<div class="container">
+				<div class="countries-wrap__title">
+					<div class="row justify-content-center">
+						<div class="col-xl-5 col-lg-7 col-md-10">
+							<h2 class="h2 text-center">
+								We are available in many well-known States
+							</h2>
+						</div>
+					</div>
+				</div>
+				<div class="countries-list">
+					<!-- Countries List Start -->
+					<ul class="row">
+						<li class="col-lg-3 col-md-6 col-sm-6">
+							<div class="countries-box">
+								<div class="countries-box__title">Maharashtra</div>
+								<div class="countries-box__img">
+									<img src="/static/assets/countrie-img-1.jpg" alt="" />
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-6 col-sm-6">
+							<div class="countries-box">
+								<div class="countries-box__title">Madhya Pradesh</div>
+								<div class="countries-box__img">
+									<img src="/static/assets/countrie-img-2.avif" alt="" />
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-6 col-sm-6">
+							<div class="countries-box">
+								<div class="countries-box__title">Haryana</div>
+								<div class="countries-box__img">
+									<img src="/static/assets/countrie-img-3.jpg" alt="" />
+								</div>
+							</div>
+						</li>
+						<li class="col-lg-3 col-md-6 col-sm-6">
+							<div class="countries-box">
+								<div class="countries-box__title">Gujarat</div>
+								<div class="countries-box__img">
+									<img src="/static/assets/countrie-img-4.jpg" alt="" />
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- Countries List End -->
+				</div>
+			</div>
+		</div>
+		<!-- Countries Section End -->
+
+		<div class="recently-added-wrap">
+			<div class="container">
+				<div
+					class="recently-added-wrap__title d-md-flex justify-content-between"
+				>
+					<h2 class="h2">Highly Rated Property</h2>
+					<div class="cta">
+						<a href="#" class="btn btn-link">See all</a>
+					</div>
+				</div>
+
+				<div class="property-list">
+					<ul class="row">
+						<li class="col-md-6">
+							<div class="property-box">
+								<div class="property-box__left">
+									<img src="https://picsum.photos/id/174/158/200" alt="" />
+								</div>
+								<div class="property-box__right">
+									<div class="property-box__title h3">
+										<a href="#">Bhopal</a>
+									</div>
+									<div class="property-box__amenities">
+										<span>4 Bedroom</span>
+										<span>150 M</span>
+										<span>2 Garage</span>
+									</div>
+									<div class="property-box__post-price">
+										<div class="property-box__post-by">
+											Posted by <a href="#">Amar Jain</a>
+										</div>
+										<div class="property-box__price">
+											<span class="badge">₹5,545</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="property-box">
+								<div class="property-box__left">
+									<img src="https://picsum.photos/id/174/158/200" alt="" />
+								</div>
+								<div class="property-box__right">
+									<div class="property-box__title h3">
+										<a href="#">Bhopal</a>
+									</div>
+									<div class="property-box__amenities">
+										<span>4 Bedroom</span>
+										<span>150 M</span>
+										<span>2 Garage</span>
+									</div>
+									<div class="property-box__post-price">
+										<div class="property-box__post-by">
+											Posted by <a href="#">Amar Jain</a>
+										</div>
+										<div class="property-box__price">
+											<span class="badge">₹5,545</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="property-box">
+								<div class="property-box__left">
+									<img src="https://picsum.photos/id/174/158/200" alt="" />
+								</div>
+								<div class="property-box__right">
+									<div class="property-box__title h3">
+										<a href="#">Bhopal</a>
+									</div>
+									<div class="property-box__amenities">
+										<span>4 Bedroom</span>
+										<span>150 M</span>
+										<span>2 Garage</span>
+									</div>
+									<div class="property-box__post-price">
+										<div class="property-box__post-by">
+											Posted by <a href="#">Amar Jain</a>
+										</div>
+										<div class="property-box__price">
+											<span class="badge">₹5,545</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="property-box">
+								<div class="property-box__left">
+									<img src="https://picsum.photos/id/174/158/200" alt="" />
+								</div>
+								<div class="property-box__right">
+									<div class="property-box__title h3">
+										<a href="#">Bhopal</a>
+									</div>
+									<div class="property-box__amenities">
+										<span>4 Bedroom</span>
+										<span>150 M</span>
+										<span>2 Garage</span>
+									</div>
+									<div class="property-box__post-price">
+										<div class="property-box__post-by">
+											Posted by <a href="#">Amar Jain</a>
+										</div>
+										<div class="property-box__price">
+											<span class="badge">₹5,545</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="property-box">
+								<div class="property-box__left">
+									<img src="https://picsum.photos/id/174/158/200" alt="" />
+								</div>
+								<div class="property-box__right">
+									<div class="property-box__title h3">
+										<a href="#">Bhopal</a>
+									</div>
+									<div class="property-box__amenities">
+										<span>4 Bedroom</span>
+										<span>150 M</span>
+										<span>2 Garage</span>
+									</div>
+									<div class="property-box__post-price">
+										<div class="property-box__post-by">
+											Posted by <a href="#">Amar Jain</a>
+										</div>
+										<div class="property-box__price">
+											<span class="badge">₹5,545</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="col-md-6">
+							<div class="property-box">
+								<div class="property-box__left">
+									<img src="https://picsum.photos/id/174/158/200" alt="" />
+								</div>
+								<div class="property-box__right">
+									<div class="property-box__title h3">
+										<a href="#">Bhopal</a>
+									</div>
+									<div class="property-box__amenities">
+										<span>4 Bedroom</span>
+										<span>150 M</span>
+										<span>2 Garage</span>
+									</div>
+									<div class="property-box__post-price">
+										<div class="property-box__post-by">
+											Posted by <a href="#">Amar Jain</a>
+										</div>
+										<div class="property-box__price">
+											<span class="badge">₹5,545</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		
+		
+
+		<!--Box for User Count -->
+		<hr style=" height:5px; border: none; border-bottom: 2px solid #333; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px 0;">
+
+		<div class="container">
+			<div class="count-box">
+				<h2 class="count-box__title">Current Registered Users: {{ current_users_count }}</h2>
+			</div>
+		</div>
+		<div class="container">
+			<!-- Box for Property Count -->
+			<div class="count-box">
+				<h2 class="count-box__title">Active Properties: {{ current_properties_count }}</h2>
+			</div>
+		</div>
+		<hr style=" height:5px; border: none; border-top: 2px solid #333; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px 0;">
+		
+
+		<div class="footer-wrap">
+			<footer>
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-4 col-md-8">
+							<div class="f-info">
+								<div class="f-logo pb-3">
+									<img src="/static/assets/logo2.png" alt="" width="50px" />DWELLSPHARE
+								</div>
+								<p class="text-small pb-3">
+									Welcome to our platform where landlords effortlessly list properties for rent, 
+									and tenants find their ideal home with ease. Landowners can showcase their spaces, 
+									while renters can explore, connect, and secure their next rental—all in one place. 
+									Simplify your property journey with us—list or find your perfect rental today!
+								</p>
+								<div class="d-none d-lg-block">
+									<div class="social-list pb-3">
+										<ul>
+											<li>
+												<a href="#" class="facebook" target="_blank"
+													><i class="ri-facebook-circle-fill"></i
+												></a>
+											</li>
+											<li>
+												<a href="#" class="twitter" target="_blank"
+													><i class="ri-twitter-fill"></i
+												></a>
+											</li>
+											<li>
+												<a href="#" class="instagram" target="_blank"
+													><i class="ri-instagram-fill"></i
+												></a>
+											</li>
+											<li>
+												<a href="#" class="linkedin" target="_blank"
+													><i class="ri-linkedin-box-fill"></i
+												></a>
+											</li>
+										</ul>
+									</div>
+									<p class="text-small">© DWELLSPHARE . All rights reserved.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-7 col-md-12">
+							<div class="row">
+								
+								<!-- <div class="col-md-4 col-sm-6 col-6 pb-4 pb-md-0">
+									<h5 class="h4 pb-3">Our Company</h5>
+									<div class="quick-links">
+										<ul>
+											<li><a href="#">About Us</a></li>
+											<li><a href="#">Contact Us</a></li>
+										</ul>
+									</div>
+								</div> -->
+								<div class="col-md-5">
+									<h5 class="h4 pb-3">Subscribe</h5>
+									<div class="subscribe-form-wrap">
+										<form class="subscribe-form form-wrap">
+											<div class="form-group">
+												<div class="cta"></div>
+												
+												<input
+													type="email"
+													class="form-control"
+													placeholder="Email Address"
+												/>	
+												
+												<button class="btn btn-primary btn-icon btn-sm btn-rounded">
+														<i class="ri-arrow-right-line"></i>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="d-lg-none pt-4">
+						<div class="social-list pb-3">
+							<ul>
+								<li>
+									<a href="#" class="facebook" target="_blank"
+										><i class="ri-facebook-circle-fill"></i
+									></a>
+								</li>
+								<li>
+									<a href="#" class="twitter" target="_blank"
+										><i class="ri-twitter-fill"></i
+									></a>
+								</li>
+								<li>
+									<a href="#" class="instagram" target="_blank"
+										><i class="ri-instagram-fill"></i
+									></a>
+								</li>
+								<li>
+									<a href="#" class="linkedin" target="_blank"
+										><i class="ri-linkedin-box-fill"></i
+									></a>
+								</li>
+							</ul>
+						</div>
+						<p class="text-small">© 2021 . All rights reserved.</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script src="/static/js/script.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/static/css/dashboardstyles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="app-icon">
+            <img src="/static/assets/logo2.png" alt="logo" class="logo">
+            DWELLSPHARE
+          </div>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item active ">
+            <a href="{{ url_for('dashboard') }}">
+              <i class='bx bx-building-house' style='color:#fbfbfb' ><span> Properties</span></i>
+            </a>
+          </li>
+          
+          <li class="sidebar-list-item">
+            <a href="{{ url_for('profile') }}">
+              <i class='bx bx-user' style='color:#fbfbfb'  ><span> My Profile</span>
+              </i>
+            </a>
+          </li>
+        </ul>
+        <div class="account-info">
+          <div class="account-info-picture">
+              <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
+          </div>
+          <div class="account-info-name">{{ username }}</div>
+          <div class="logout">
+            <a href="{{ url_for('index') }}"> <i class='bx bx-log-out' ></i>
+            </a></div>
+          
+      </div>
+      </div>
+      <div class="app-content">
+        <div class="app-content-header">
+          <h1 class="app-content-headerText">Property Details</h1>
+          <a href="{{ url_for('addform') }}">
+          <button class="app-content-headerButton" id="addproperty" >Add Property</button>
+        </a>
+        </div>
+        <div class="app-content-actions">
+          <input class="search-bar" placeholder="Search..." type="text">
+          
+        </div>
+        <div class="products-area-wrapper tableView">
+          <div class="products-header">
+            <div class="product-cell image">
+              Room Type
+              
+            </div>
+            <div class="product-cell category">Room Size</div>
+            <div class="product-cell status-cell">Capacity</div>
+            <div class="product-cell sales">Rent<button class="sort-button"></div>
+            <div class="product-cell stock">Security Fees<button class="sort-button"></div>        
+            <div class="product-cell price">Water Bill Fees<button class="sort-button"></div>
+          </div>
+          {% for entry in entries %}
+          <div class="products-row">
+            <button class="cell-more-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+            </button>
+              <div class="product-cell image">
+                <img src="https://thumbs.dreamstime.com/b/empty-room-rent-2133716.jpg" alt="property1">
+                <span>{{ entry.room_type }}</span>
+              </div>
+            <div class="product-cell category"><span class="cell-label">Room Size:</span>{{ entry.room_size }}</div>
+            <div class="product-cell status-cell">
+              <span class="cell-label">Capacity:</span>
+              <span class="status active">{{ entry.capacity }}</span>
+            </div>
+            <div class="product-cell sales"><span class="cell-label">Rent:</span>{{ entry.rent }}</div>
+            <div class="product-cell stock"><span class="cell-label">Security Fee:</span>{{ entry.security_fee }}</div>
+            <div class="product-cell price"><span class="cell-label">Water Bill Fees:</span>{{ entry.water_fee }}</div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/dashboardscript.js"></script>
+  </body>
+</html>

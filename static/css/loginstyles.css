@@ -1,0 +1,123 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-image: url("/static/assets/bg.jpg");
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  width: 100px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  filter: invert(100%);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #fff; /* Change background color to white */
+}
+
+.container {
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+  background-color: #ffffff; /* Change background color to white */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  font-size: 22px;
+  color: #0b0217;
+}
+
+.input-field {
+  position: relative;
+  margin-top: 30px;
+}
+
+.input-field input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  color: #333;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+
+.input-field input:focus {
+  border-color: #7d2ae8;
+}
+
+.input-field i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #707070;
+}
+
+.input-field i.bx-user,
+.input-field i.bx-lock-alt {
+  left: 0;
+}
+
+.input-field input:focus ~ i.bx-user,
+.input-field input:focus ~ i.bx-lock-alt {
+  color: #101827;
+}
+
+.input-field .submit {
+  background: #101827;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.two-col {
+  /* Add styles for the two-column layout */
+}
+
+.two {
+  /* Add styles for the second column */
+}
+
+.two span {
+  font-size: 12px;
+}
+
+.two a.abc {
+  color: #7d2ae8;
+  text-decoration: underline;
+}
+
+.flash-messages {
+  /* Add styles for flash messages */
+}
+
+.flash-message {
+  font-size: 15px;
+  color: red;
+}

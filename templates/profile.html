@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/static/css/dashboardstyles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="app-icon">
+            <img src="/static/assets/logo2.png" alt="logo" class="logo">
+            DWELLSPHARE
+          </div>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="{{ url_for('dashboard') }}">
+              <i class='bx bx-building-house' style='color:#fbfbfb' ><span> Properties</span></i>
+            </a>
+          </li>
+          <li class="sidebar-list-item active">
+            <a href="{{ url_for('profile') }}">
+              <i class='bx bx-user' style='color:#fbfbfb'  ><span> My Profile</span></i>
+            </a>
+          </li>
+        </ul>
+        <div class="account-info">
+          <div class="account-info-picture">
+            <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
+          </div>
+          <div class="account-info-name">{{ username }}</div>
+          <div class="logout">
+            <a href="{{ url_for('index') }}"> <i class='bx bx-log-out' ></i></a>
+          </div>
+        </div>
+      </div>
+       <div class="app-content">
+        <div class="app-content-header">
+          <h1 class="app-content-headerText">My Profile</h1>
+        </div>
+          <div class="profile-info">
+            {% if user %}
+                <div class="profile-name">{{ user.full_name }}</div>
+                <div class="profile-email">{{ user.email }}</div>
+                <div class="profile-address">{{ user.address }}</div>
+                <div class="profile-ph-no">{{ user.ph_no }}</div>
+            {% else %}
+                <!-- Displayed when the profile is not filled -->
+                <button class="app-content-headerButton" onclick="openProfileForm()">Fill Profile</button>
+            {% endif %}
+        </div>
+        <!-- Additional content for My Profile page -->
+        <!-- ... -->
+        <!-- Profile Form Popup -->
+        <div id="profile-message"></div>
+        <div id="profileFormPopup" class="fill-profile-form" style="display: none;">
+            <form id="profileForm" method="POST" action="{{ url_for('fill_profile') }}">
+                <label for="profile">Profile Details</label>
+                <input type="text" name="full_name" placeholder="full name" required>
+                <input type="email" name="email" placeholder="email" required>
+                <input type="text"holder="permanent address" required>
+                <input type="text" name="ph_no" placeholder="phone number" required> <!-- New input field -->
+                <!-- Add more fields as needed -->
+                <button type="submit">Submit</button>
+            </form>
+            <span class="close" onclick="closeProfileForm()">Close</span>
+        </div>
+    </div>
+    <script src="/static/js/dashboardscript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      function openProfileForm() {
+        document.getElementById("profileFormPopup").style.display = "block";
+      }
+
+      function closeProfileForm() {
+        document.getElementById("profileFormPopup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+* {
+   font-family: 'Nunito', sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   text-decoration: none;
+   transition: all .2s linear;
+   text-transform: capitalize;
+   background:#fff; /* Replace color codes with your desired colors */
+}
+
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body {
+   background: #eee;
+}
+
+.title {
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+.container {
+   max-width: 100%;
+   margin: 0 auto;
+   padding: 3rem 2rem;
+   background-color: #fff;
+}
+
+.container .title {
+   font-size: 3.5rem;
+   color: #444;
+   margin-bottom: 3rem;
+   text-transform: uppercase;
+   text-align: center;
+}
+
+.container .products-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+   gap: 2rem;
+   margin: 2%;
+}
+
+.container .products-container .product {
+   text-align: center;
+   padding: 3rem 2rem;
+   background: #fff;
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+   outline: .1rem solid #ccc;
+   outline-offset: -1.5rem;
+   cursor: pointer;
+}
+
+.container .products-container .product:hover {
+   outline: .2rem solid #222;
+   outline-offset: 0;
+}
+
+.container .products-container .product img {
+   height: 25rem;
+   max-width: 300px;
+}
+
+.container .products-container .product:hover img {
+   transform: scale(.9);
+}
+
+.container .products-container .product h3 {
+   padding: .5rem 0;
+   font-size: 2rem;
+   color: #444;
+}
+
+.container .products-container .product:hover h3 {
+   color: #27ae60;
+}
+
+.container .products-container .product .price {
+   font-size: 2rem;
+   color: #444;
+   text-align: left;
+}
+
+.products-preview {
+   position: fixed;
+   top: 0;
+   left: 0;
+   min-height: 100vh;
+   width: 100%;
+   background: rgba(0, 0, 0, .8);
+   display: none;
+   align-items: center;
+   justify-content: center;
+}
+
+.products-preview.active {
+   overflow-y: auto;
+   max-height: 80vh;
+   display: flex; /* Set display to flex when active */
+}
+
+.products-preview .preview {
+   display: none;
+   padding: 2rem;
+   text-align: center;
+   background: #fff;
+   position: relative;
+   margin: 2rem;
+   width: 40rem;
+}
+
+.products-preview .preview.active {
+   display: inline-block; /* Set display to inline-block when active */
+}
+
+.products-preview .preview img {
+   height: 30rem;
+}
+
+.products-preview .preview .fa-times {
+   position: absolute;
+   top: 1rem;
+   right: 1.5rem;
+   cursor: pointer;
+   color: #444;
+   font-size: 4rem;
+}
+
+.products-preview .preview .fa-times:hover {
+   transform: rotate(90deg);
+}
+
+.products-preview .preview h3 {
+   color: #444;
+   padding: .5rem 0;
+   font-size: 2.5rem;
+}
+
+.products-preview .preview .stars {
+   padding: 1rem 0;
+   font-size: 1.7rem;
+}
+
+.products-preview .preview .stars i {
+   color: #27ae60;
+}
+
+.products-preview .preview .stars span {
+   color: #999;
+}
+
+.products-preview .preview p {
+   line-height: 1.5;
+   padding: 1rem 0;
+   font-size: 1.6rem;
+   color: #777;
+}
+
+.products-preview .preview .price {
+   padding: 1rem 0;
+   font-size: 2.5rem;
+   color: black;
+   text-align: left;
+}
+
+.products-preview .preview .buttons {
+   display: flex;
+   gap: 1.5rem;
+   flex-wrap: wrap;
+   margin-top: 1rem;
+}
+
+.products-preview .preview .buttons a {
+   flex: 1 1 16rem;
+   padding: 1rem;
+   font-size: 1.8rem;
+   color: #444;
+   border: .1rem solid #444;
+}
+
+.products-preview .preview .buttons a.cart {
+   background: #444;
+   color: #fff;
+}
+
+.products-preview .preview .buttons a.cart:hover {
+   background: #111;
+}
+
+.products-preview .preview .buttons a.buy:hover {
+   background: #444;
+   color: #fff;
+}
+.btn {
+  background-color: #4e73df;
+  border: none;
+  color: #ffffff;
+  border-radius: 20px; /* Adjusted to 20px for a rounded appearance */
+  padding: 5px 10px; /* Adjusted padding for better spacing */
+  font-size: 13px; /* Adjusted font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Added a smooth transition for hover effect */
+}
+
+.btn:hover {
+  background-color: #39529e;
+}
+
+/* Additional styles for different states */
+.btn:active {
+  transform: scale(0.98); /* Slight scale down when button is active/clicked */
+}
+
+.btn:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 10px rgba(78, 115, 223, 0.5); /* Add a subtle box shadow when button is focused */
+}
+
+.popup-overlay {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+   z-index: 900; /* Adjust the z-index to be lower than the popup */
+ }
+ 
+ .popup {
+   display: none;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: white;
+   padding: 20px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   z-index: 1000;
+ }
+ 
+ .popup-content {
+   text-align: center;
+ }
+ 
+ .close-btn {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   cursor: pointer;
+ }
+
+ .alert {
+   padding: 15px;
+   background-color: #ebedef;
+   color: black;
+   text-align: center;
+   position: fixed;
+   top: 20px;
+   right: 20px;
+   z-index: 1000;
+   width: 300px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   animation: slideIn 0.5s, fadeOut 0.5s 4s forwards;
+}
+
+.closebtn {
+   position: absolute;
+   top: 50%;
+   right: 15px;
+   transform: translateY(-50%);
+   cursor: pointer;
+   font-size: 20px;
+}
+
+.progress {
+   height: 4px;
+   background-color: #101827;
+   border-radius: 4px;
+   position: relative;
+   margin-top: 10px;
+   animation: progressBar 5s linear forwards;
+}
+
+/* Animation */
+@keyframes slideIn {
+   from {
+       transform: translateY(-100%);
+   }
+   to {
+       transform: translateY(0);
+   }
+}
+
+@keyframes fadeOut {
+   from {
+       opacity: 1;
+   }
+   to {
+       opacity: 0;
+   }
+}
+
+@keyframes progressBar {
+   0% {
+       width: 100%;
+   }
+   100% {
+       width: 0%;
+   }
+}
+
+body{
+   background-color: white;
+}
+
+@media (max-width: 1000px) {
+   html {
+      font-size: 55%;
+   }
+}
+
+@media (max-width: 768px) {
+   .products-preview .preview img {
+      height: rem;
+   }
+}
+
+@media (max-width: 450px) {
+   html {
+      font-size: 50%;
+   }
+}

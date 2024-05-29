@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "dwellsphare",
+            "database": "dwellsphare",
+            "username": "root",
+            "password": "Ash96808"
+        }
+    ],
+    "liveServer.settings.port": 5501
+}

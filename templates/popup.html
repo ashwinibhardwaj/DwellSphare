@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Exists Alert</title>
+    <style>
+        .alert {
+            padding: 15px;
+            background-color: #ebedef;
+            color: black;
+            text-align: center;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.5s, fadeOut 0.5s 4s forwards;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .progress {
+            height: 4px;
+            background-color: #101827;
+            border-radius: 4px;
+            position: relative;
+            margin-top: 10px;
+            animation: progressBar 5s linear forwards;
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes progressBar {
+            0% {
+                width: 100%;
+            }
+            100% {
+                width: 0%;
+            }
+        }
+
+        body{
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div class="alert" id="alert">
+    <span class="closebtn" onclick="closeAlert()">&times;</span>
+    <b>Password already exists!</b>
+    <div class="progress"></div>
+</div>
+
+<script>
+    // Automatically close the alert after 5 seconds
+    setTimeout(function() {
+        document.getElementById('alert').style.display = 'none';
+    }, 5000);
+
+    // Function to close the alert
+    function closeAlert() {
+        document.getElementById('alert').style.display = 'none';
+    }
+</script>
+</body>
+</html>

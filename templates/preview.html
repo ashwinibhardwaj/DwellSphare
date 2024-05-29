@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DWELLSPHARE|Property Preview
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/previewStyles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- <h1><center>Private hostel </center></h1> -->
+   
+    <center>
+        <div class="product-container">
+            <div class="Centerimg">
+                {% if room.image_path %}
+                     <img src="{{ url_for('uploaded_file', filename=room.image_path) }}" alt="Property Image" width="400px">
+                  {% else %}
+                     <p>No image available</p>
+                  {% endif %}           
+            </div>
+            <div class="details">
+                <h2>{{ room.name }}</h2>
+                <h4>{{ room.address }}</h4>
+                <address></address>
+                <ul style="padding-left: 2em;">
+                    <li><b>Room Type:</b> {{ room.room_type }}</li>
+                    <li><b>Room Size:</b> {{ room.room_size }}</li>
+                    <li><b>Capacity:</b> {{ room.capacity }}</li>
+                    <li><b>Rent:</b> {{ room.rent }}</li>
+                    <li><b>security_fee:</b> {{ room.security_fee }}</li>
+                    <li><b>water_fee:</b> {{ room.water_fee }}</li>
+                    <li><b>Facilities:</b> {{ room.facilities }}</li>
+                    <li><b>Address:</b> {{ room.address }}</li>
+
+                </ul>
+            </div>
+        </div>
+    </center>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 text-center m-auto">
+                <h1><span id="avg_rating">{{ rating_data.average_rating }}</span>/5.0</h1>
+                <div id="star_icons">
+                    <!-- Star icons will be dynamically added here using JavaScript -->
+                </div>
+                <span id="total_review">{{ rating_data.total_reviews }}</span> Reviews
+            </div>
+            <div class="col-sm-4 progressSection">
+                <div class='holder'>
+                    <div>
+                        <div class="progress-label-left">
+                            <b>5</b> <i class="fa fa-star mr-1 text-warning"></i>
+                        </div>
+                        <div class="progress-label-right">
+                            <span id="total_five_star_review"> {{ rating_data.five_star_reviews }} </span> Reviews
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" id='five_star_progress'></div>
+                    </div>
+                </div>
+                <div class='holder'>
+                    <div>
+                        <div class="progress-label-left">
+                            <b>4</b> <i class="fa fa-star mr-1 text-warning"></i>
+                        </div>
+                        <div class="progress-label-right">
+                            <span id="total_five_star_review"> {{ rating_data.four_star_reviews }}</span> Reviews
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" id='five_star_progress'></div>
+                    </div>
+                </div>
+                <div class='holder'>
+                    <div>
+                        <div class="progress-label-left">
+                            <b>3</b> <i class="fa fa-star mr-1 text-warning"></i>
+                        </div>
+                        <div class="progress-label-right">
+                            <span id="total_five_star_review"> {{ rating_data.three_star_reviews }} </span> Reviews
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" id='five_star_progress'></div>
+                    </div>
+                </div>
+                <div class='holder'>
+                    <div>
+                        <div class="progress-label-left">
+                            <b>2</b> <i class="fa fa-star mr-1 text-warning"></i>
+                        </div>
+                        <div class="progress-label-right">
+                            <span id="total_five_star_review"> {{ rating_data.two_star_reviews }} </span> Reviews
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" id='five_star_progress'></div>
+                    </div>
+                </div>
+                <div class='holder'>
+                    <div>
+                        <div class="progress-label-left">
+                            <b>1</b> <i class="fa fa-star mr-1 text-warning"></i>
+                        </div>
+                        <div class="progress-label-right">
+                            <span id="total_five_star_review"> {{ rating_data.one_star_reviews }} </span> Reviews
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" id='five_star_progress'></div>
+                    </div>
+                </div>
+                <!-- Repeat similar structures for 4, 3, 2, 1 stars -->
+            </div>
+            <div class="col-sm-4 text-center m-auto">
+                <button class="btn-primary" id='add_review'> Add Review </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Write your Review</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <form id="reviewForm" action="{{ url_for('submit_review', room_id=room_id)  }}" method="POST">
+            <div class="modal-body text-center">
+                <h4>
+                    <i class="fa fa-star star-light submit_star mr-1" id='submit_star_1' data-rating='1'></i>
+                    <i class="fa fa-star star-light submit_star mr-1" id='submit_star_2' data-rating='2'></i>
+                    <i class="fa fa-star star-light submit_star mr-1" id='submit_star_3' data-rating='3'></i>
+                    <i class="fa fa-star star-light submit_star mr-1" id='submit_star_4' data-rating='4'></i>
+                    <i class="fa fa-star star-light submit_star mr-1" id='submit_star_5' data-rating='5'></i>
+                </h4>
+
+                <input type="hidden" name="rating" id="ratingInput">
+                <input type="hidden" name="userName" id="userNameInput">
+                <input type="hidden" name="userMessage" id="userMessageInput">
+        
+                <div class="form-group">
+                    <input type="text" class="form-control" id='userName' name='userName' placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <textarea name="userMessage" id="userMessage" class="form-control" placeholder="Enter message"></textarea>
+                </div>
+                <div class="submit-btn">
+                    <button type="submit" class="btn-primary" id='sendReview'>Submit</button>
+                </div>
+            </div>
+        </form>
+         
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/static/js/previewScript.js"></script>
+</body>
+
+</html>

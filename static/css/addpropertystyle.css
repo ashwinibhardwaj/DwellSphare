@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color:  #101827;
+}
+.logo {
+  width: 100px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  filter: invert(100%);
+}
+
+#addform {
+  width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+#heading{
+    text-align: center;
+    font-size: 30px;
+}
+
+#addform .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#addform .form-group {
+  flex: 1;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+#addform .form-group:last-child {
+  margin-right: 0;
+}
+
+#addform label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#addform input[type="text"],
+#addform input[type="number"],
+#addform input[type="tel"],
+#addform select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#addform input[type="file"] {
+  display: none;
+}
+
+#addform .custom-file-input {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#addform .custom-file-input label {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addform .custom-file-input label:hover {
+  background-color: #f2f2f2;
+}
+
+#addform #selectedImage {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+#addform button[type="submit"] {
+  background-color: #070bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addform button[type="submit"]:hover {
+  background-color: #0508a1;
+}
+
+#resultMessage {
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #070bff;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  #addform {
+    width: 100%;
+  }
+
+  #addform .form-group {
+    flex: 1 0 100%;
+    margin-right: 0;
+  }
+}

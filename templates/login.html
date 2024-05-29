@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/loginstyles.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Login</title>
+</head>
+<body>
+    <a href="{{ url_for('index') }}"><img src="/static/assets/logo2.png" alt="Logo" class="logo"></a>
+        <div class="container">
+            <header><h3>Login</h3></header>
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for message in messages %}
+                            <div class="flash-message">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+                <div class="input-field">
+                    <i class='bx bx-user'></i>
+                    <input type="text" class="input" placeholder="Username" id="username" name="username" required>
+                </div>
+                <div class="input-field">
+                    <i class="uil uil-lock password"></i>
+                    <input type="password" class="input" placeholder="Password" id="password" name="password" required>
+                </div>
+                <div class="input-field">
+                    <input type="submit" class="submit" value="Login">
+                </div>
+            </form>
+            <div class="two-col">
+                <div class="two">
+                    <span>Don't have an account? <a class="abc" href="{{ url_for('register') }}">Register</a></span>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

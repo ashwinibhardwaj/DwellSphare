@@ -1,0 +1,162 @@
+/* previewStyles.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  border-radius: 12px; 
+  overflow: hidden; 
+}
+
+.Centerimg img {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.Centerimg img:hover {
+  transform: scale(1.05);
+}
+
+.details {
+  margin-left: 20px;
+}
+
+.details h2 {
+  color: #2d4059;
+  margin-bottom: 10px;
+}
+
+.details h4 {
+  color: #6b717e;
+  margin-bottom: 15px;
+}
+
+.details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details li {
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+/* Align facilities to the left */
+.details ul {
+  text-align: left;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.progressSection {
+  text-align: center;
+}
+
+.holder {
+  margin-bottom: 20px;
+}
+
+.progress-label-left,
+.progress-label-right {
+  display: inline-block;
+  width: 30%;
+  color: #6b717e;
+}
+
+.progress-label-left {
+  text-align: left;
+}
+
+.progress-label-right {
+  text-align: right;
+}
+
+#add_review {
+  background-color: #1929ff;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#add_review:hover {
+  background-color: #183fee;
+}
+
+/* Modal Styles */
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #404cfa;
+  color: #fff;
+  border-bottom: 2px solid #1929ff;
+  border-radius: 8px 8px 0 0;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.star-light {
+  color: #ffe586;
+  cursor: pointer;
+}
+
+.star-light:hover,
+.star-light.active {
+  color: #f5c518;
+}
+
+#userName,
+#userMessage {
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #1929ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: rgb(30, 47, 146);
+}
+
+/* Additional Styles */
+
+.alert-message {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.alert-message.error {
+  background-color: #dc3545;
+}
