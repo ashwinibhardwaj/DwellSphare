@@ -81,17 +81,17 @@ class Review(db.Model):
 # MySQL connector setup
 db_connector = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="Ash96808",
-    database="dwellsphare"
+    user="user_name",
+    password=" ",
+    database="db_name"
 )
 
 cursor = db_connector.cursor()
 
 # Twilio credentials
-account_sid = 'AC4a72ac87bcdca9eaa81a34907965ba0b'
-auth_token = '121c86cbb1ffa30517aef34b9cdc1434'
-twilio_phone_number = '+19283251086'
+account_sid = 'your twilio account id'
+auth_token = 'twilio authentication tocken'
+twilio_phone_number = 'twilio registered number'
 
 client = Client(account_sid, auth_token)
 
@@ -117,9 +117,9 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'ashwini.10521@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Ash26707'
-app.config['MAIL_DEFAULT_SENDER'] = 'ashwini.10521@gmail.com'
+app.config['MAIL_USERNAME'] = 'mail_id'
+app.config['MAIL_PASSWORD'] = 'Mail_pass'
+app.config['MAIL_DEFAULT_SENDER'] = 'sender_mail_id'
 
 mail = Mail(app)
 
@@ -163,10 +163,10 @@ def search():
 
         return render_template('searchresults.html', results=results, room_ids=room_ids)
 
-account_sid = 'AC4a72ac87bcdca9eaa81a34907965ba0b'
-auth_token = '121c86cbb1ffa30517aef34b9cdc1434'
-twilio_phone_number = '+19283251086'
-my_phone_number = '+919680826707'
+account_sid = 'twilio account id'
+auth_token = 'twilio authentication token'
+twilio_phone_number = 'twilio phone no.'
+my_phone_number = 'your_phone_number'
 
 client = Client(account_sid, auth_token)  
 
@@ -177,7 +177,7 @@ def send_message(room_id):
 
         if room:
             message = client.messages.create(
-                body="Hello from ashwini",
+                body="Hello from sender",
                 from_=twilio_phone_number,
                 to=room.ph_no  # Assuming there is a 'phone_number' field in the Room model
             )
